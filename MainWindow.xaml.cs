@@ -47,6 +47,7 @@ namespace Sample
         {
             Window1 window1 = new();
             window1.ShowDialog();
+            Clients.ItemsSource = new ObservableCollection<Client>(db.Clients.ToList());
 
         }
 
