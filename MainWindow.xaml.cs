@@ -37,9 +37,9 @@ namespace Sample
             db.Clients.AddRange(client1, client2, client);
             db.SaveChanges();
 
-            clients = new ObservableCollection<Client> (db.Clients.ToList());
+            //clients = new ObservableCollection<Client> (db.Clients.ToList());
 
-            Clients.ItemsSource = clients;
+            Clients.ItemsSource = db.Clients.ToList();
 
         }
 
@@ -47,7 +47,10 @@ namespace Sample
         {
             Window1 window1 = new();
             window1.ShowDialog();
-            Clients.ItemsSource = new ObservableCollection<Client>(db.Clients.ToList());
+
+
+
+            Clients.ItemsSource = db.Clients.ToList();
 
         }
 
@@ -57,8 +60,8 @@ namespace Sample
             db.Clients.Remove(remove);
             db.SaveChanges();
 
-            clients = new ObservableCollection<Client>(db.Clients.ToList());
-            Clients.ItemsSource = clients;
+
+            Clients.ItemsSource = db.Clients.ToList();
 
         }
     }
