@@ -1,7 +1,6 @@
 ﻿using Sample.DB;
 using Sample.Model;
 using Sample.Pages;
-
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
@@ -23,23 +22,30 @@ namespace Sample
     {
 
         ApplicationContext db = new ApplicationContext();
-        ObservableCollection<Client> clients;
-        Client client = new Client() {  Name = "123" };
-        Client client1 = new Client() {  Name = "234" };
-        Client client2 = new Client() { Name = "345" };
+        ObservableCollection<User> clients;
 
         public MainWindow()
         {
             this.DataContext = this;
 
-            InitializeComponent();
+            
 
-            db.Clients.AddRange(client1, client2, client);
-            db.SaveChanges();
+            Role role = new Role() { Name = "Бог" };
+            User client = new User() { Name = "лох", Login = "1234", Password = "1234", Role = role };
+            Equipment equipment = new Equipment() { Name = "Абоаб" };
+            StateRequest stateRequest = new StateRequest() { Name = "Готова" };
+            TypeFault typeFault = new TypeFault() { Name = "Жопа" };
+            Request request = new Request() {  Equipment = equipment, DateUpdate = DateTime.Now, StateRequest = stateRequest, TypeFault = typeFault, User = client };
+            Request request1 = new Request() { Equipment = equipment, DateUpdate = DateTime.Now, StateRequest = stateRequest, TypeFault = typeFault, User = client };
+
+
 
             //clients = new ObservableCollection<Client> (db.Clients.ToList());
-
-            Clients.ItemsSource = db.Clients.ToList();
+            db.Requests.AddRange(request, request1);
+            db.SaveChanges();
+            InitializeComponent();
+            Requests.ItemsSource = db.Requests.ToList();
+            
 
         }
 
@@ -48,20 +54,18 @@ namespace Sample
             Window1 window1 = new();
             window1.ShowDialog();
 
-
-
-            Clients.ItemsSource = db.Clients.ToList();
+            Requests.ItemsSource = db.Requests.ToList();
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Client remove = (Client)((Button)sender).DataContext;
-            db.Clients.Remove(remove);
+            Request remove = (Request)((Button)sender).DataContext;
+            db.Requests.Remove(remove);
             db.SaveChanges();
 
 
-            Clients.ItemsSource = db.Clients.ToList();
+            Requests.ItemsSource = db.Requests.ToList();
 
         }
     }

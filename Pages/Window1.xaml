@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sample.Pages"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Добавление записи" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBox x:Name="Saske"/>
-            <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="Description" />
+            <ComboBox x:Name="EquipmentCB" DisplayMemberPath="Name"/>
+            <ComboBox x:Name="TypeFaultCB" DisplayMemberPath="Name"/>
+            <ComboBox x:Name="UserCB" DisplayMemberPath="Name"/>
+            <ComboBox x:Name="StateRequestCB" DisplayMemberPath="Name"/>
+            <StackPanel Orientation="Horizontal" >
                 <Button Height="30" Width=" 100" Content="Назад" Click="Button_Click"/>
                 <Button Height="30" Width=" 100" Content="Ок" Click="Button_Click_1"/>
             </StackPanel>

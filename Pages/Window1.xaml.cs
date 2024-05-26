@@ -28,9 +28,13 @@ namespace Sample.Pages
         ApplicationContext db = new ApplicationContext();
         public Window1()
         {
+
             this.DataContext = this;
             InitializeComponent();
-
+            EquipmentCB.ItemsSource = db.Equipment.ToList();
+            TypeFaultCB.ItemsSource = db.TypeFaults.ToList();
+            UserCB.ItemsSource = db.Users.ToList();
+            StateRequestCB.ItemsSource = db.StateRequests.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,10 +45,17 @@ namespace Sample.Pages
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            Client client = new Client() {Name = Saske.Text };
+            Request request= new Request() 
+            { 
+                Equipment = EquipmentCB.SelectedItem as Equipment, 
+                DateUpdate = DateTime.Now, 
+                StateRequest = StateRequestCB.SelectedItem as StateRequest, 
+                TypeFault = TypeFaultCB.SelectedItem as TypeFault,
+                User = UserCB.SelectedItem as User 
+            };
             try
             {
-                db.Clients.Add(client);
+                db.Requests.Add(request);
                 db.SaveChanges();
                 this.Close();
             }

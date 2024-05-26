@@ -9,11 +9,11 @@
     <Grid>
         <StackPanel>
             <ScrollViewer>
-                <ItemsControl x:Name="Clients">
+                <ItemsControl x:Name="Requests">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel HorizontalAlignment="Left">
-                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Equipment.Name}"/>
                                 <Button Height="30" Width=" 100" Content="Удалить" Click="Button_Click_1"/>
                             </StackPanel>
                         </DataTemplate>
