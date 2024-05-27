@@ -4,25 +4,56 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sample"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Главное окно" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <ScrollViewer>
-                <ItemsControl x:Name="Requests">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel HorizontalAlignment="Left">
-                                <TextBlock Text="{Binding Equipment.Name}"/>
-                                <Button Height="30" Width=" 100" Content="Удалить" Click="Button_Click_1"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+
+        <ScrollViewer Grid.Row="0">
+            <ItemsControl x:Name="Requests">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ui:CardAction Icon="{ui:SymbolIcon Fluent24}">
+                            <!--<StackPanel HorizontalAlignment="Left">
+                                <Label Content="{Binding Equipment.Name}" />
+                                <Button Height="30" Width=" 100" Content="Удалить" Click="Button_Click_1" />
+                            </StackPanel>-->
+                            <StackPanel>
+                                <ui:TextBlock
+                            Margin="10 0 0 0"
+                            FontTypography="BodyStrong"
+                            Foreground="DarkSlateGray"
+                            Text="{Binding Equipment.Name}"
+                            TextWrapping="WrapWithOverflow" />
+                                <ui:TextBlock
+                                    Margin="10 0 0 0"
+                            Appearance="Secondary"
+                            Foreground="Gray"
+                            Text="{Binding StateRequest.Name, StringFormat={}{0}}"
+                            TextWrapping="WrapWithOverflow" />
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Height="30" Width=" 100" Content="Удалить" Click="Button_Click_1" Margin="5 0 0 0"/>
+                                    <Button Height="30"  Content="Редактировать" Click="Button_Click_3" Margin="5 0 0 0"/>
+                                </StackPanel>
                             </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
-            <Button Click="Button_Click" Height="30" Width=" 100" Content="Добавить"/>
+                        </ui:CardAction>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" Height="2"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button  Click="Button_Click" Height="30" Width=" 100" Content="Добавить" Margin="5"/>
+            <Button  Click="Button_Click_2" Content="Количество выполненных заявок"/>
         </StackPanel>
-        
-       
+
+
     </Grid>
 </Window>

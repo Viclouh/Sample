@@ -8,11 +8,16 @@
         Title="Добавление записи" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <TextBox x:Name="Description" />
-            <ComboBox x:Name="EquipmentCB" DisplayMemberPath="Name"/>
-            <ComboBox x:Name="TypeFaultCB" DisplayMemberPath="Name"/>
-            <ComboBox x:Name="UserCB" DisplayMemberPath="Name"/>
-            <ComboBox x:Name="StateRequestCB" DisplayMemberPath="Name"/>
+            <Label Content="Описание" Margin="4 0 0 0"/>
+            <TextBox x:Name="Description" Margin="4"/>
+            <Label Content="Выбор запчасти" Margin="4 0 0 0"/>
+            <ComboBox x:Name="EquipmentCB" DisplayMemberPath="Name" Margin="4"/>
+            <Label Content="Выбор типа неисправности" Margin="4 0 0 0"/>
+            <ComboBox x:Name="TypeFaultCB" DisplayMemberPath="Name" Margin="4"/>
+            <Label Content="Выбор клиента" Margin="4 0 0 0"/>
+            <ComboBox x:Name="UserCB" DisplayMemberPath="Name" Margin="4"/>
+            <Label Content="Выбор состояние заявки" Margin="4 0 0 0"/>
+            <ComboBox x:Name="StateRequestCB" DisplayMemberPath="Name" Margin="4"/>
             <StackPanel Orientation="Horizontal" >
                 <Button Height="30" Width=" 100" Content="Назад" Click="Button_Click"/>
                 <Button Height="30" Width=" 100" Content="Ок" Click="Button_Click_1"/>

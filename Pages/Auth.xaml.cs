@@ -39,11 +39,11 @@ namespace Sample.Pages
         {
             try
             {
-                if (Login.Text == "" || Password.Text == "") 
+                if (Login.Text == "" || Password.Password == "") 
                 {
                     MessageBox.Show("Заполните поля");
                 }
-                if (ValidateCredentials(Login.Text, Password.Text))
+                if (ValidateCredentials(Login.Text, Password.Password))
                 {
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();

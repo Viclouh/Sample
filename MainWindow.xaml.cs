@@ -68,5 +68,19 @@ namespace Sample
             Requests.ItemsSource = db.Requests.ToList();
 
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            int count = db.Requests.Count(x => x.StateRequest.Name == "Готова");
+            MessageBox.Show("Количество выполненных заявок: " + count,"Отчет");
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            EditingRequest EditingRequest = new();
+            EditingRequest.ShowDialog();
+
+            Requests.ItemsSource = db.Requests.ToList();
+        }
     }
 }

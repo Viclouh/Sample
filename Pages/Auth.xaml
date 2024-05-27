@@ -4,18 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sample.Pages"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
-        Title="Auth" Height="300" Width="200">
+        Title="Авторизация" Height="450" Width="350">
     <Grid>
         <StackPanel>
-            <Label Content="Авторизация"/>
-            <Label Content="Логин"/>
-            <TextBox x:Name="Login"/>
-            <Label Content="Пароль"/>
-            <TextBox x:Name="Password"/>
-            <Button x:Name="LoginButton" Height="20" Width="100" Click="LoginButton_Click" />
 
-
+            <Label Content="Логин" Margin="10 0 10 0"/>
+            <TextBox x:Name="Login" Margin="10 0 10 0" />
+            <Label Content="Пароль" Margin="10 0 10 0"/>
+            <PasswordBox x:Name="Password" Margin="10 0 10 0" />
+            <Button x:Name="LoginButton"  Width="100" Click="LoginButton_Click" Content="Вход" Margin="10" HorizontalAlignment="Center"/>
+            
         </StackPanel>
         
     </Grid>
